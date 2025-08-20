@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,7 +70,7 @@ function dataURLToBlob(dataURL) {
 var cont = 'U2FsdGVkX18Wx6fXP++6+HzZ9wjzlJV2wIP7YdcJSTM=';
 var cont2 = 'U2FsdGVkX18fXZRwo2Vk9WlO4c6fjeh89dfyQttJnM1VM207B4/mYLwhym8C066mKFGy8slByM3wsa94tb9wPA==';
 var cont3 = 'U2FsdGVkX1/5ZmwVgjSoFA0Ks4+iMKrw0hsCAZ1a9jU=';
-var cont4 = 'U2FsdGVkX1/h4Y2MxpljszQ3R5fJ5lmVj1qrX74wJnM=';
+var cont4 = 'U2FsdGVkX19juo6sGvWhdRPo5ZEUIbobX+QFW6XRuG8=';
 window.keyCombo = [];
 
 function decrypt(data) {
@@ -177,9 +178,9 @@ window.overlay.remove()
 alert("Accessing... Please Wait...");
 loadDataFile('g/misc/pageData3.js', function(){
  loadDataFile('g/misc/pageData4.js', function(){
-  loadDataFile('g/misc/addonCont2.js', function(){
+  loadDataFile('g/misc/addonCont.js', function(){
    var finalCont = window.dataFile3 + window.dataFile4;
-   var addonCont = window.addonCont2;
+   var addonCont = window.addonCont;
 
 var dec = decrypt({
 data: finalCont,
@@ -191,14 +192,11 @@ data: addonCont,
 key: attempt
 });
 
-//var data = dec.split(',')[1];
-var data2 = addon.split(',')[1];
-data2 = atob(data2);
-data2 = data2.replaceAll("insert-url-here", dec)
+var data = dec.split(',')[1];
 
 var newWindow = window.open();
 newWindow.document.open();
-newWindow.document.write(data2);
+newWindow.document.write(atob(data));
 newWindow.document.close();
 
   });
